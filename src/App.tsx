@@ -1,5 +1,5 @@
-import React, { useState, useRef }  from 'react';
-import { Redirect, Route } from 'react-router-dom';
+import React, { useState, useRef } from "react";
+import { Redirect, Route } from "react-router-dom";
 import {
   IonApp,
   IonIcon,
@@ -9,43 +9,43 @@ import {
   IonTabButton,
   IonTabs,
   setupIonicReact,
-  useIonModal
-} from '@ionic/react';
-import { IonReactRouter } from '@ionic/react-router';
-import { ellipse, square, triangle } from 'ionicons/icons';
-import Tab1 from './pages/Tab1';
-import Tab2 from './pages/Tab2';
-import Tab3 from './pages/Tab3';
-import ViewTest from './pages/ViewTest';
-import { SQLiteHook, useSQLite } from 'react-sqlite-hook';
-import ViewMessage from './pages/ViewMessage';
+  useIonModal,
+} from "@ionic/react";
+import { IonReactRouter } from "@ionic/react-router";
+import { ellipse, square, triangle } from "ionicons/icons";
+import Tab1 from "./pages/Tab1";
+import Tab2 from "./pages/Tab2";
+import Tab3 from "./pages/Tab3";
+import ViewTest from "./pages/ViewTest";
+import { SQLiteHook, useSQLite } from "react-sqlite-hook";
+import ViewMessage from "./pages/ViewMessage";
 
 /* Core CSS required for Ionic components to work properly */
-import '@ionic/react/css/core.css';
+import "@ionic/react/css/core.css";
 
 /* Basic CSS for apps built with Ionic */
-import '@ionic/react/css/normalize.css';
-import '@ionic/react/css/structure.css';
-import '@ionic/react/css/typography.css';
+import "@ionic/react/css/normalize.css";
+import "@ionic/react/css/structure.css";
+import "@ionic/react/css/typography.css";
 
 /* Optional CSS utils that can be commented out */
-import '@ionic/react/css/padding.css';
-import '@ionic/react/css/float-elements.css';
-import '@ionic/react/css/text-alignment.css';
-import '@ionic/react/css/text-transformation.css';
-import '@ionic/react/css/flex-utils.css';
-import '@ionic/react/css/display.css';
+import "@ionic/react/css/padding.css";
+import "@ionic/react/css/float-elements.css";
+import "@ionic/react/css/text-alignment.css";
+import "@ionic/react/css/text-transformation.css";
+import "@ionic/react/css/flex-utils.css";
+import "@ionic/react/css/display.css";
 
 /* Theme variables */
-import './theme/variables.css';
+import "./theme/variables.css";
 
 interface JsonListenerInterface {
-  jsonListeners: boolean,
-  setJsonListeners: React.Dispatch<React.SetStateAction<boolean>>,
+  jsonListeners: boolean;
+  setJsonListeners: React.Dispatch<React.SetStateAction<boolean>>;
 }
 interface existingConnInterface {
-  existConn: boolean,
-  setExistConn: React.Dispatch<React.SetStateAction<boolean>>,
+  existConn: boolean;
+  setExistConn: React.Dispatch<React.SetStateAction<boolean>>;
 }
 
 // Singleton SQLite Hook
@@ -59,7 +59,7 @@ setupIonicReact();
 
 const App: React.FC = () => {
   const [existConn, setExistConn] = useState(false);
-  existingConn = {existConn: existConn, setExistConn: setExistConn};
+  existingConn = { existConn: existConn, setExistConn: setExistConn };
 
   // !!!!! if you do not want to use the progress events !!!!!
   // since react-sqlite-hook 2.1.0
@@ -70,7 +70,6 @@ const App: React.FC = () => {
 
   sqlite = useSQLite();
   console.log(`$$$ in App sqlite.isAvailable  ${sqlite.isAvailable} $$$`);
-
 
   return (
     <IonApp>
@@ -91,7 +90,6 @@ const App: React.FC = () => {
             </Route>
             <Route path="/test/:name" component={ViewTest} />
             <Route path="/message/:id" component={ViewMessage} />
-  
           </IonRouterOutlet>
           <IonTabBar slot="bottom">
             <IonTabButton tab="tab1" href="/tab1">

@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState } from "react";
 import {
   IonBackButton,
   IonButtons,
@@ -11,13 +11,13 @@ import {
   IonPage,
   IonToolbar,
   useIonViewWillEnter,
-} from '@ionic/react';
-import { personCircle } from 'ionicons/icons';
-import { useParams } from 'react-router';
-import { Message } from '../data/messages';
-import { sqlite } from '../App';
-import { SQLiteDBConnection} from 'react-sqlite-hook';
-import './ViewMessage.css';
+} from "@ionic/react";
+import { personCircle } from "ionicons/icons";
+import { useParams } from "react-router";
+import { Message } from "../data/messages";
+import { sqlite } from "../App";
+import { SQLiteDBConnection } from "react-sqlite-hook";
+import "./ViewMessage.css";
 
 function ViewMessage() {
   const [message, setMessage] = useState<Message>();
@@ -27,7 +27,7 @@ function ViewMessage() {
     try {
       const msg = await getMessage(parseInt(params.id, 10));
       setMessage(msg);
-    } catch(err) {
+    } catch (err) {
       console.log(`Error: ${err}`);
     }
   });
@@ -37,7 +37,7 @@ function ViewMessage() {
     let isConn = await sqlite.isConnection("db-messages");
     let db: SQLiteDBConnection;
     try {
-      if(!isConn.result) {
+      if (!isConn.result) {
         db = await sqlite.createConnection("db-messages");
       } else {
         db = await sqlite.retrieveConnection("db-messages");
@@ -53,8 +53,7 @@ function ViewMessage() {
     } catch (err) {
       return Promise.reject(`Error: ${err}`);
     }
-
-  }
+  };
   return (
     <IonPage id="view-message-page">
       <IonHeader translucent>

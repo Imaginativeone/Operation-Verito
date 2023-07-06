@@ -1,5 +1,5 @@
-import { capSQLiteSet } from '@capacitor-community/sqlite';
-export const createTablesNoEncryption: string =  `-- testcomments
+import { capSQLiteSet } from "@capacitor-community/sqlite";
+export const createTablesNoEncryption: string = `-- testcomments
     CREATE TABLE IF NOT EXISTS users (
     /*
      * Author: jeepq
@@ -16,7 +16,7 @@ export const createTablesNoEncryption: string =  `-- testcomments
     last_modified INTEGER DEFAULT (strftime('%s', 'now'))
     );
 `;
-export const createTablesNoEncryption1: string =  `
+export const createTablesNoEncryption1: string = `
     CREATE TABLE IF NOT EXISTS users (
     id INTEGER PRIMARY KEY NOT NULL,
     email TEXT UNIQUE NOT NULL,
@@ -70,14 +70,17 @@ export const dropTablesTablesNoEncryption: string = `
     PRAGMA foreign_keys = ON;
 `;
 
-export const setUsers: Array<capSQLiteSet>  = [
-    { statement:"INSERT INTO users (name,email,age) VALUES (?,?,?);",
-      values:["Jackson","Jackson@example.com",18]
-    },
-    { statement:"INSERT INTO users (name,email,age) VALUES (?,?,?);",
-      values:["Kennedy","Kennedy@example.com",25]
-    },
-    { statement:"INSERT INTO users (name,email,age) VALUES (?,?,?);",
-      values:["Bush","Bush@example.com",42]
-    },
-  ];
+export const setUsers: Array<capSQLiteSet> = [
+  {
+    statement: "INSERT INTO users (name,email,age) VALUES (?,?,?);",
+    values: ["Jackson", "Jackson@example.com", 18],
+  },
+  {
+    statement: "INSERT INTO users (name,email,age) VALUES (?,?,?);",
+    values: ["Kennedy", "Kennedy@example.com", 25],
+  },
+  {
+    statement: "INSERT INTO users (name,email,age) VALUES (?,?,?);",
+    values: ["Bush", "Bush@example.com", 42],
+  },
+];
